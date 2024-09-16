@@ -32,8 +32,7 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
 
     /**
      * Generate the display of the formulation part of the question shown at runtime
-     * in a quiz.  This is the area that contains the question text with gaps, and the
-     * draggable potential answers
+     * in a quiz. 
      *
      * @param question_attempt $qa the question attempt to display.
      * @param question_display_options $options controls what should and should not be displayed.

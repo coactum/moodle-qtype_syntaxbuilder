@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The language strings for component 'qtype_gapfill', language 'en'
+ * The language strings for component 'qtype_syntaxbuilder', language 'en'
  *
  * @copyright &copy; 2012 Marcus Green
  * @author marcusavgreen@gmail.com
