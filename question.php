@@ -34,7 +34,7 @@ class qtype_syntaxbuilder_question extends question_graded_automatically_with_co
      * Feedback when the response is entirely correct
      * @var string
      */
-    public $syntaxbuilder_sentence = '';
+    public $syntaxbuilder_sentence;
 
     /**
      * Communicate with the ng-syntaxbuilder.js script
@@ -73,6 +73,7 @@ class qtype_syntaxbuilder_question extends question_graded_automatically_with_co
      * @inheritDoc
      */
     public function get_expected_data() {
+        return array('syntaxbuilder' => PARAM_TEXT); //PARAM_RAW
     }
     
     /**
@@ -91,5 +92,22 @@ class qtype_syntaxbuilder_question extends question_graded_automatically_with_co
      * @inheritDoc
      */
     public function summarise_response(array $response) {
+    }
+
+    /**
+     * Return the question settings that define this question as structured data.
+     *
+     * @param question_attempt $qa the current attempt for which we are exporting the settings.
+     * @param question_display_options $options the question display options which say which aspects of the question
+     * should be visible.
+     * @return mixed structure representing the question settings. In web services, this will be JSON-encoded.
+     */
+    public function get_question_definition_for_external_rendering(question_attempt $qa, question_display_options $options) {
+        // This is a partial implementation, returning only the most relevant question settings for now,
+        // ideally, we should return as much as settings as possible (depending on the state and display options).
+
+        return [
+            'syntaxbuilder_sentence' => $this->syntaxbuilder_sentence
+        ];
     }
 }

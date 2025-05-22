@@ -30,9 +30,9 @@ function xmldb_qtype_syntaxbuilder_upgrade($oldversion = 0) {
     global $DB;
 
     $dbman = $DB->get_manager();
-    if ($oldversion < 2024121606) {
-        if (!$dbman->table_exists('question_syntaxbuilder_settings')) {
-            $table = new xmldb_table('question_syntaxbuilder_settings');
+    if ($oldversion < 2024121607) {
+        if (!$dbman->table_exists('question_syntaxbuilder')) {
+            $table = new xmldb_table('question_syntaxbuilder');
             $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
             $table->add_field('question', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'id');
             $table->add_field('syntaxbuilder_sentence', XMLDB_TYPE_TEXT, null, null, null, null, null, 'question');
