@@ -36,4 +36,26 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_syntaxbuilder extends question_type {
+    /**
+     * Writes to the database, runs from question editing form
+     *
+     * @param stdClass $question
+     * @param stdClass $options
+     * @param context_course_object $context
+     */
+    public function update_question_syntaxbuilder($question, $options, $context) {
+        global $DB;
+        $options = $DB->get_record('question_syntaxbuilder_settings', array('question' => $question->id));
+        if (!$options) {
+            $options = new stdClass();
+            $options->question = $question->id;
+            $options->syntaxbuilder_sentence = '';
+            $options->id = $DB->insert_record('question_syntaxbuilder_settings', $options);
+        }
+
+        $options->syntaxbuilder_sentence = $question->syntaxbuilder_sentence;
+
+        $options = $this->save_combined_feedback_helper($options, $question, $context, true);
+        $DB->update_record('question_syntaxbuilder_settings', $options);
+    }
 }

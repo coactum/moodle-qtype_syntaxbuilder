@@ -31,6 +31,12 @@
 class qtype_syntaxbuilder_question extends question_graded_automatically_with_countback {
 
     /**
+     * Feedback when the response is entirely correct
+     * @var string
+     */
+    public $syntaxbuilder_sentence = '';
+
+    /**
      * Communicate with the ng-syntaxbuilder.js script
      * @return void
      */
