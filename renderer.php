@@ -18,14 +18,14 @@
  * Generates the output for syntaxbuilder questions
  *
  * @package    qtype_syntaxbuilder
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
  * Generates the output for syntaxbuilder questions
  *
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer {

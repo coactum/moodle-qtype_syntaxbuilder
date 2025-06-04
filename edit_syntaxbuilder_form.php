@@ -17,7 +17,7 @@
 /**
  * The editing form code for this question type.
  * @package    qtype_syntaxbuilder
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
@@ -26,7 +26,7 @@ require_once($CFG->dirroot . '/question/type/edit_question_form.php');
 
 /**
  * Editing form for the Syntaxbuilder question type
- * @copyright 2024 coactum GmbH
+ * @copyright 2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * gapfill editing form definition.
  *

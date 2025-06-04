@@ -18,14 +18,14 @@
  * Syntaxbuilder question definition class. Mainly about runtime
  *
  * @package    qtype_syntaxbuilder
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 /**
  * Syntaxbuilder question definition class.
  *
  * @package    qtype_syntaxbuilder
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_syntaxbuilder_question extends question_graded_automatically_with_countback {
