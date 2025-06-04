@@ -18,14 +18,14 @@
  * Version information. When a new version is released the version is incremented
  *
  * @package    qtype_syntaxbuilder
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qtype_syntaxbuilder';
-$plugin->version  = 2024082704;
+$plugin->version  = 2025060201;
 $plugin->requires = 2022040100;  // Moodle 4.0.
-$plugin->release = '1.006';
+$plugin->release = '1.8.42';
 $plugin->maturity  = MATURITY_STABLE;

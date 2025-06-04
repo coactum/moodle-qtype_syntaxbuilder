@@ -17,7 +17,7 @@
  * Privacy class for Moodle Gapfill question type.
  *
  * @package   qtype_syntaxbuilder
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 namespace qtype_syntaxbuilder\privacy;
@@ -25,7 +25,7 @@ namespace qtype_syntaxbuilder\privacy;
 /**
  * Privacy Subsystem for qtype_syntaxbuilder implementing null_provider.
  *
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements

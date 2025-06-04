@@ -19,7 +19,7 @@
  *
  * @package    qtype_syntaxbuilder
  * @subpackage backup-moodle2
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@
  *
  * Also used if you click the duplicate quiz button in a course.
  *
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_qtype_syntaxbuilder_plugin extends restore_qtype_plugin {

@@ -19,7 +19,7 @@
  *
  * @package    qtype_syntaxbuilder
  * @subpackage backup-moodle2
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,7 +27,7 @@
  *
  * Provides steps to perform one complete backup of a syntaxbuilder question instance
  *
- * @copyright  2024 coactum GmbH
+ * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_qtype_syntaxbuilder_plugin extends backup_qtype_plugin {
