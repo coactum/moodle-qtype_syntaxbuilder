@@ -39,10 +39,17 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
      * @return string HTML fragment.
      */
     public function formulation_and_controls(question_attempt $qa, question_display_options $options) {
+        // echo "<pre>";
+        // var_dump($qa->get_last_step()->get_user()->username);
+        // var_dump($qa->get_question()->id);
+        // var_dump($qa->get_slot());
+        // die;
+        $syntaxbuilder_id = $qa->get_question()->id . '_' . $qa->get_slot();
+
         $question = $qa->get_question();
         $question->initjs();
         $questiontext = $question->questiontext;
-        $syntaxbuilder_sentence = $question->syntaxbuilder_sentence;
+        $syntaxbuilder_sentence = trim($question->syntaxbuilder_sentence);
         $output = "";
 
         $last_data = $qa->get_last_qt_data();
@@ -57,7 +64,7 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
                     "description" => "",
                     "author" => "",
                     "is_solution" => false,
-                    "is_exam" => false,
+                    "is_exam" => true,
                     "date" => time() * 1000,
                     "version" => "1.0.0",
                     "meta_version" => "1.6.0"
@@ -105,9 +112,37 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
 
         
 
-        $output .= html_writer::tag('textarea', $syntaxDataText, ['style' => 'display: none;', 'id' => 'syntaxbuilder-input-1']);
-        $output .= html_writer::tag('div', '', ['class' => 'qtext syntaxbuilder-viewer-here', 'syntaxbuilder-data-id' => '1', 'syntaxbuilder-data-output-name' => $qa->get_qt_field_name('syntaxbuilder')]);
+        $output .= html_writer::tag(
+            'textarea', 
+            $syntaxDataText, 
+            [
+                'style' => 'display: none;', 
+                'id' => 'syntaxbuilder-input-' . $syntaxbuilder_id
+            ]
+        );
+        $output .= html_writer::tag(
+            'div', 
+            '', 
+            [
+                'class' => 'qtext syntaxbuilder-viewer-here',
+                'syntaxbuilder-data-id' => $syntaxbuilder_id,
+                'syntaxbuilder-data-output-name' => $qa->get_qt_field_name('syntaxbuilder'),
+                'syntaxbuilder-data-readonly' => $options->readonly ? 'true' : 'false',
+            ]
+        );
         //$output .= html_writer::tag('textarea', '', ['style' => 'display: none;', 'id' => 'syntaxbuilder-output-1', 'name' => $qa->get_qt_field_name('syntaxbuilder') ]);
+        if ($options->readonly) {
+            $output .= html_writer::tag(
+                'div',
+                '',
+                [
+                    'class' => 'syntaxbuilder-download-here',
+                    'syntaxbuilder-data-id' => $syntaxbuilder_id,
+                    'syntaxbuilder-data-downloadfilename' => $qa->get_last_step()->get_user()->username . '-' . $qa->get_question()->id
+                ]
+
+            );
+        }
         return $output;
     }
 }

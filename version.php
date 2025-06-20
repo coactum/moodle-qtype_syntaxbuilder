@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qtype_syntaxbuilder';
-$plugin->version  = 2025060201;
+$plugin->version  = 2025062014;
 $plugin->requires = 2022040100;  // Moodle 4.0.
-$plugin->release = '1.8.42';
+$plugin->release = '1.8.44_14';
 $plugin->maturity  = MATURITY_STABLE;
