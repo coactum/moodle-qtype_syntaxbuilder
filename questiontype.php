@@ -55,7 +55,7 @@ class qtype_syntaxbuilder extends question_type {
 
         $options->syntaxbuilder_sentence = $question->syntaxbuilder_sentence;
 
-        $options = $this->save_combined_feedback_helper($options, $question, $context, true);
+        // $options = $this->save_combined_feedback_helper($options, $question, $context, true);
         $DB->update_record('question_syntaxbuilder_options', $options);
     }
 
@@ -80,7 +80,7 @@ class qtype_syntaxbuilder extends question_type {
 
         $options->syntaxbuilder_sentence = $question->syntaxbuilder_sentence;
         
-        $options = $this->save_combined_feedback_helper($options, $question, $context, true);
+        // $options = $this->save_combined_feedback_helper($options, $question, $context, true);
         $DB->update_record('question_syntaxbuilder_options', $options);
     }
 

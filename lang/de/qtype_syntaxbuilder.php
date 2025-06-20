@@ -23,10 +23,10 @@
  */
 defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'Syntaxbauer';
-$string['pluginname_help'] = 'This tool can be integrated as a plug-in into the Moodle learning platform, making it available to both students and instructors within the familiar web environment of their university.';
-$string['pluginnamesummary'] = 'SYNTAXBAUER (‘syntax builder’) is designed for the syntactic analysis of (German) sentences, which is a common practice in linguistic studies.';
-$string['pluginnameediting'] = 'Editing SYNTAXBAUER.';
-$string['pluginnameadding'] = 'Adding a SYNTAXBAUER Question.';
+$string['pluginname_help'] = 'Dieses Tool kann als Plug-in in die Lernplattform Moodle integriert werden, so dass es sowohl Studierenden als auch Lehrkräften innerhalb der vertrauten Webumgebung ihrer Universität zur Verfügung steht.';
+$string['pluginnamesummary'] = 'Der SYNTAXBAUER wurde für die syntaktische Analyse von (deutschen) Sätzen entwickelt, wie sie in der Linguistik üblich ist.';
+$string['pluginnameediting'] = 'SYNTAXBAUER bearbeiten.';
+$string['pluginnameadding'] = 'Füge SYNTAXBAUER Frage hinzu.';
 
-$string['syntaxbuilder_sentence'] = 'SYNTAXBAUER sentence';
-$string['error_sentence_required'] = 'Please enter a sentence.';
+$string['syntaxbuilder_sentence'] = 'SYNTAXBAUER-Satz';
+$string['error_sentence_required'] = 'Bitte geben Sie einen Satz ein.';

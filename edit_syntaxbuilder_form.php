@@ -28,7 +28,7 @@ require_once($CFG->dirroot . '/question/type/edit_question_form.php');
  * Editing form for the Syntaxbuilder question type
  * @copyright 2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * gapfill editing form definition.
+ * syntaxbuilder editing form definition.
  *
  * See http://docs.moodle.org/en/Development:lib/formslib.php for information
  * about the Moodle forms library, which is based on the HTML Quickform PEAR library.
@@ -93,7 +93,8 @@ HTML
 );
         $mform->addElement('html', '<div id="questiontext" class="qtext syntaxbuilder-viewer-here" syntaxbuilder-data-id=1></div>');*/
         
-        $mform->addElement('text', 'syntaxbuilder_sentence', 'Satz', array('size'=>100));
+        $mform->addElement('text', 'syntaxbuilder_sentence', get_string('syntaxbuilder_sentence', 'qtype_syntaxbuilder'), array('size'=>100));
+        $mform->addRule('syntaxbuilder_sentence', get_string('error_sentence_required', 'qtype_syntaxbuilder'), 'required' , '', 'client');
         $mform->setType('syntaxbuilder_sentence', PARAM_TEXT);
 
         //$mform->addElement('html', '<div id="questiontext" class="qtext" style="display: none" name="questiontext[text]" ></div>');
@@ -103,6 +104,13 @@ HTML
 
         $mform->setType('generalfeedback', PARAM_RAW);
         $mform->addHelpButton('generalfeedback', 'generalfeedback', 'question');
+
+        // $mform->addElement('hidden', 'correctfeedback', '');
+        // $mform->setType('correctfeedback', PARAM_RAW);
+        // $mform->addElement('hidden', 'partiallycorrectfeedback', '');
+        // $mform->setType('partiallycorrectfeedback', PARAM_RAW);
+        // $mform->addElement('hidden', 'incorrectfeedback', '');
+        // $mform->setType('incorrectfeedback', PARAM_RAW);
 
         //$mform->removeelement('questiontext');
         //$mform->addElement('text', 'questiontext', get_string('questiontext', 'question'), array('size'=>100));

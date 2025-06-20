@@ -28,13 +28,18 @@
  * @copyright  2024 - 2025 coactum GmbH
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_syntaxbuilder_question extends question_graded_automatically_with_countback {
+class qtype_syntaxbuilder_question extends question_with_responses {
 
     /**
-     * Feedback when the response is entirely correct
+     * sentence to be build
      * @var string
      */
     public $syntaxbuilder_sentence;
+
+
+    public function make_behaviour(question_attempt $qa, $preferredbehaviour) {
+        return question_engine::make_behaviour('manualgraded', $qa, $preferredbehaviour);
+    }
 
     /**
      * Communicate with the ng-syntaxbuilder.js script
@@ -49,6 +54,7 @@ class qtype_syntaxbuilder_question extends question_graded_automatically_with_co
      * @inheritDoc
      */
     public function compute_final_grade($responses, $totaltries) {
+        return 0;
     }
     
     /**
@@ -67,6 +73,7 @@ class qtype_syntaxbuilder_question extends question_graded_automatically_with_co
      * @inheritDoc
      */
     public function get_correct_response() {
+        return null;
     }
     
     /**
@@ -80,18 +87,21 @@ class qtype_syntaxbuilder_question extends question_graded_automatically_with_co
      * @inheritDoc
      */
     public function is_complete_response(array $response) {
+       return true;
     }
     
     /**
      * @inheritDoc
      */
     public function is_same_response(array $prevresponse, array $newresponse) {
+        return false;
     }
     
     /**
      * @inheritDoc
      */
     public function summarise_response(array $response) {
+        return "";
     }
 
     /**
