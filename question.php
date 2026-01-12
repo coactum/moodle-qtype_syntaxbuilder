@@ -47,6 +47,7 @@ class qtype_syntaxbuilder_question extends question_with_responses {
      */
     public function initjs() {
         global $PAGE;
+        $PAGE->requires->js_call_amd('qtype_syntaxbuilder/autosave_trigger', 'init');
         $PAGE->requires->js_call_amd('qtype_syntaxbuilder/syntaxbuilder-app', 'init');
     }
 
@@ -87,14 +88,15 @@ class qtype_syntaxbuilder_question extends question_with_responses {
      * @inheritDoc
      */
     public function is_complete_response(array $response) {
-       return true;
+       return !empty($response['syntaxbuilder']);
     }
     
     /**
      * @inheritDoc
      */
     public function is_same_response(array $prevresponse, array $newresponse) {
-        return false;
+        return question_utils::arrays_same_at_key_missing_is_blank(
+        $prevresponse, $newresponse, 'syntaxbuilder');
     }
     
     /**
