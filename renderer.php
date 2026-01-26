@@ -138,7 +138,7 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
                 [
                     'class' => 'syntaxbuilder-download-here',
                     'syntaxbuilder-data-id' => $syntaxbuilder_id,
-                    'syntaxbuilder-data-downloadfilename' => $qa->get_last_step()->get_user()->username . '-' . $qa->get_question()->id
+                    'syntaxbuilder-data-downloadfilename' => $qa->get_last_step()->get_user_fullname() . '-' . $qa->get_last_step()->get_user()->username . '-' . $qa->get_question()->id
                 ]
 
             );
