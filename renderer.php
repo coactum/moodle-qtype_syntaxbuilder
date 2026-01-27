@@ -39,11 +39,8 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
      * @return string HTML fragment.
      */
     public function formulation_and_controls(question_attempt $qa, question_display_options $options) {
-        // echo "<pre>";
-        // var_dump($qa->get_last_step()->get_user()->username);
-        // var_dump($qa->get_question()->id);
-        // var_dump($qa->get_slot());
-        // die;
+        global $DB;
+
         $syntaxbuilder_id = $qa->get_question()->id . '_' . $qa->get_slot();
 
         $question = $qa->get_question();
@@ -53,6 +50,7 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
         $output = "";
 
         $last_data = $qa->get_last_qt_data();
+
 
         $syntaxDataText = '';
         if (isset($last_data['syntaxbuilder'])) {
@@ -91,23 +89,7 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
             $syntaxData['words'] = $words;
             $syntaxDataText = json_encode($syntaxData);
         }
-        //if 
-        //echo "<pre>";
-        //var_dump($question->syntaxbuilder_sentence);
-        //die;
-        //var_dump($qa->get_qt_field_name('syntaxbuilder'));
-        //die;
-        // q30:2_syntaxbuilder
-        //echo "<pre>";
-        //var_dump($qa->get_last_qt_data());
-        //die;
 
-        //$output = "";
-        //$question = $qa->get_question();
-        //$question->initjs();
-        //$questiontext = $question->questiontext;
-        //$output = $questiontext;
-        //$output = html_writer::tag('div', ' [SYNTAXBAUER]' . $output.' [/SYNTAXBAUER]', ['class' => 'qtext', 'id' => 'syntaxbuilder-viewer-here']);
         $output .= html_writer::tag('p', $questiontext);
 
         
@@ -130,15 +112,20 @@ class qtype_syntaxbuilder_renderer extends qtype_with_combined_feedback_renderer
                 'syntaxbuilder-data-readonly' => $options->readonly ? 'true' : 'false',
             ]
         );
-        //$output .= html_writer::tag('textarea', '', ['style' => 'display: none;', 'id' => 'syntaxbuilder-output-1', 'name' => $qa->get_qt_field_name('syntaxbuilder') ]);
+        
         if ($options->readonly) {
+
+            $qubaid = $qa->get_usage_id();
+            $attempt = $DB->get_record('quiz_attempts', ['uniqueid' => $qubaid]);
+            $user = core_user::get_user($attempt->userid);
+
             $output .= html_writer::tag(
                 'div',
                 '',
                 [
                     'class' => 'syntaxbuilder-download-here',
                     'syntaxbuilder-data-id' => $syntaxbuilder_id,
-                    'syntaxbuilder-data-downloadfilename' => $qa->get_last_step()->get_user_fullname() . '-' . $qa->get_last_step()->get_user()->username . '-' . $qa->get_question()->id
+                    'syntaxbuilder-data-downloadfilename' => core_user::get_fullname($user) . '-' . $user->username . '-' . $qubaid
                 ]
 
             );
