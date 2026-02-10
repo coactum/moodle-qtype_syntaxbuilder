@@ -15,7 +15,10 @@ define([], function() {
                 
                 saving = true;
                 
-                M.mod_quiz.autosave.save_changes();
+                if (M && M.mod_quiz && M.mod_quiz.autosave) {
+                    M.mod_quiz.autosave.save_changes();
+                }
+                
                 
                 // nicht häufiger als jede Sekunde zwischen speichern
                 setTimeout(function() {
